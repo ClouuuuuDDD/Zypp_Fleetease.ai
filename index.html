@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FleetEase.ai × Kunj Harjai — Strategic Product Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=VT323&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;border-radius:0!important;}
+:root{
+  --g:#00A651;--n:#1A2B4C;--w:#FFFFFF;--l:#F5F5F5;
+  --shadow:5px 5px 0px var(--n);
+  --shadow-green:5px 5px 0px var(--g);
+  --shadow-hover:9px 9px 0px var(--n);
+  --border:3px solid var(--n);
+  --fp:'Press Start 2P',monospace;
+  --fv:'VT323',monospace;
+  --fm:'Space Mono',monospace;
+}
+html{scroll-behavior:smooth;background:var(--w);}
+body{
+  font-family:var(--fv);
+  background:var(--w);
+  color:var(--n);
+  overflow-x:hidden;
+}
+
+/* ─── NAV ─── */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:9999;
+  background:var(--w);
+  border-bottom:var(--border);
+  display:flex;align-items:center;
+  padding:0 32px;height:52px;
+  justify-content:space-between;
+}
+#nav-logo{font-family:var(--fp);font-size:9px;color:var(--g);letter-spacing:1px;}
+#nav-links{display:flex;gap:24px;}
+.nav-dot{
+  width:10px;height:10px;
+  border:2px solid var(--n);
+  background:transparent;cursor:pointer;
+  transition:background 0.1s;display:inline-block;
+}
+.nav-dot.active,.nav-dot:hover{background:var(--g);border-color:var(--g);}
+#progress-bar{
+  position:fixed;top:52px;left:0;height:4px;
+  background:var(--g);width:0%;z-index:9998;
+  transition:width 0.1s linear;
+}
+
+/* ─── SECTIONS ─── */
+section{
+  min-height:100vh;width:100%;
+  padding:80px 64px 64px;
+  border-bottom:var(--border);
+  position:relative;overflow:hidden;
+}
+
+/* ─── TICKER ─── */
+.ticker-wrap{
+  background:var(--n);color:var(--w);
+  overflow:hidden;white-space:nowrap;
+  border-top:var(--border);border-bottom:var(--border);
+  padding:10px 0;
+}
+.ticker-inner{display:inline-block;animation:ticker 28s linear infinite;}
+.ticker-inner:hover{animation-play-state:paused;}
+.ticker-inner span{
+  font-family:var(--fm);font-size:11px;
+  letter-spacing:2px;padding:0 32px;
+  color:var(--w);
+}
+.ticker-inner span b{color:var(--g);}
+@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+.ticker-green{
+  background:var(--g);
+}
+.ticker-green .ticker-inner span{color:var(--w);}
+
+/* ─── HERO (SLIDE 1) ─── */
+#s1{
+  background:var(--w);
+  display:flex;flex-direction:column;
+  justify-content:center;
+  padding-top:72px;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:48px;align-items:center;
+  margin-bottom:40px;
+}
+.hero-left{}
+.hero-eyebrow{
+  font-family:var(--fm);font-size:10px;
+  color:var(--g);letter-spacing:3px;
+  margin-bottom:20px;
+  border:2px solid var(--g);
+  display:inline-block;padding:6px 12px;
+}
+.hero-h1{
+  font-family:var(--fp);font-size:22px;
+  line-height:1.7;color:var(--n);
+  margin-bottom:24px;
+}
+.hero-h1 span{color:var(--g);}
+.hero-sub{
+  font-family:var(--fv);font-size:22px;
+  line-height:1.5;color:var(--n);
+  margin-bottom:32px;max-width:520px;
+}
+.hero-sub b{color:var(--g);}
+.btn-row{display:flex;gap:16px;flex-wrap:wrap;}
+.btn{
+  font-family:var(--fp);font-size:8px;
+  padding:14px 20px;cursor:pointer;
+  border:var(--border);
+  box-shadow:var(--shadow);
+  transition:transform 0.08s,box-shadow 0.08s;
+  text-decoration:none;display:inline-block;
+  letter-spacing:0.5px;
+}
+.btn:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow-hover);}
+.btn-primary{background:var(--g);color:var(--w);}
+.btn-secondary{background:var(--w);color:var(--n);}
+
+/* Metric cards */
+.hero-right{display:flex;flex-direction:column;gap:16px;}
+.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.metric-card{
+  border:var(--border);
+  box-shadow:var(--shadow);
+  background:var(--w);
+  padding:20px;
+  position:relative;
+  overflow:hidden;
+}
+.metric-card::before{
+  content:'';position:absolute;
+  top:0;left:0;width:4px;height:100%;
+  background:var(--g);
+}
+.metric-num{
+  font-family:var(--fp);
+  font-size:20px;color:var(--g);
+  display:block;margin-bottom:8px;
+  padding-left:12px;
+}
+.metric-label{
+  font-family:var(--fm);font-size:9px;
+  color:var(--n);letter-spacing:1px;
+  text-transform:uppercase;padding-left:12px;
+}
+.stamp{
+  border:3px solid var(--g);
+  padding:12px 16px;
+  font-family:var(--fp);font-size:7px;
+  color:var(--g);line-height:1.8;
+  display:inline-block;
+  transform:rotate(-3deg);
+  position:absolute;right:64px;top:80px;
+}
+/* ─── SECTION TITLES ─── */
+.section-label{
+  font-family:var(--fm);font-size:10px;
+  color:var(--g);letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+.section-title{
+  font-family:var(--fp);font-size:14px;
+  line-height:1.7;color:var(--n);
+  margin-bottom:40px;
+  border-bottom:var(--border);
+  padding-bottom:20px;
+}
+
+/* ─── SLIDE 2: FLEET OPS ─── */
+#s2{background:var(--l);}
+.charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:40px;}
+.chart-card{
+  background:var(--w);
+  border:var(--border);
+  box-shadow:var(--shadow);
+  padding:24px;
+}
+.chart-title{
+  font-family:var(--fm);font-size:10px;
+  color:var(--n);letter-spacing:2px;
+  text-transform:uppercase;margin-bottom:20px;
+  padding-bottom:12px;border-bottom:2px solid var(--n);
+}
+
+/* Funnel bars */
+.funnel-chart{display:flex;align-items:flex-end;gap:8px;height:160px;}
+.funnel-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;}
+.funnel-bar{
+  width:100%;background:var(--g);
+  border:2px solid var(--n);
+  height:0%;
+  transition:height 1.2s cubic-bezier(0.16,1,0.3,1);
+  position:relative;display:flex;align-items:flex-end;justify-content:center;
+}
+.funnel-bar.dim{background:var(--n);opacity:0.4;}
+.funnel-bar span{
+  font-family:var(--fm);font-size:10px;
+  color:var(--w);font-weight:700;
+  padding-bottom:4px;
+}
+.funnel-label{
+  font-family:var(--fm);font-size:8px;
+  color:var(--n);text-align:center;
+  letter-spacing:0.5px;line-height:1.3;
+}
+
+/* Horizontal bars */
+.hbar-chart{display:flex;flex-direction:column;gap:12px;}
+.hbar-row{display:flex;align-items:center;gap:10px;}
+.hbar-label{
+  font-family:var(--fm);font-size:8px;
+  color:var(--n);width:120px;flex-shrink:0;
+  letter-spacing:0.3px;line-height:1.3;
+}
+.hbar-track{flex:1;background:var(--l);border:2px solid var(--n);height:22px;position:relative;}
+.hbar-fill{
+  height:100%;background:var(--g);
+  width:0%;transition:width 1s cubic-bezier(0.16,1,0.3,1);
+}
+.hbar-val{
+  font-family:var(--fm);font-size:10px;
+  font-weight:700;color:var(--n);
+  width:28px;text-align:right;flex-shrink:0;
+}
+
+/* Segments */
+.segment-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.seg-card{
+  border:var(--border);
+  box-shadow:var(--shadow-green);
+  background:var(--w);
+  padding:16px;
+}
+.seg-title{
+  font-family:var(--fp);font-size:7px;
+  color:var(--g);margin-bottom:8px;
+  line-height:1.7;
+}
+.seg-profile{
+  font-family:var(--fv);font-size:16px;
+  color:var(--n);margin-bottom:8px;
+  line-height:1.3;
+}
+.seg-play{
+  font-family:var(--fm);font-size:9px;
+  color:var(--g);
+  padding:4px 8px;border:2px solid var(--g);
+  display:inline-block;
+}
+
+/* ─── SLIDE 3: COMPETITIVE ─── */
+#s3{background:var(--w);}
+.comp-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+
+/* Scatter matrix */
+.matrix-wrap{
+  border:var(--border);box-shadow:var(--shadow);
+  background:var(--w);padding:24px;
+  position:relative;
+}
+.matrix-title{
+  font-family:var(--fm);font-size:10px;
+  color:var(--n);letter-spacing:2px;
+  text-transform:uppercase;margin-bottom:16px;
+}
+.matrix-plot{
+  position:relative;width:100%;padding-bottom:100%;
+  border-left:3px solid var(--n);
+  border-bottom:3px solid var(--n);
+}
+.matrix-inner{
+  position:absolute;top:0;left:0;right:0;bottom:0;
+}
+.matrix-dot{
+  position:absolute;
+  width:18px;height:18px;
+  border:3px solid var(--n);
+  transform:translate(-50%,-50%) scale(0);
+  transition:transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
+  display:flex;align-items:center;justify-content:center;
+}
+.matrix-dot.fleetease{background:var(--g);width:22px;height:22px;}
+.matrix-dot.other{background:var(--n);}
+.matrix-dot.dim{background:#999;border-color:#999;}
+.dot-label{
+  position:absolute;
+  font-family:var(--fm);font-size:7.5px;
+  color:var(--n);white-space:nowrap;
+  top:calc(100% + 8px);left:50%;transform:translateX(-50%);
+  letter-spacing:0.3px;
+}
+.matrix-axis-x{
+  font-family:var(--fm);font-size:8px;
+  color:var(--n);letter-spacing:1px;
+  text-transform:uppercase;
+  display:flex;justify-content:space-between;
+  margin-top:8px;
+}
+.matrix-axis-y{
+  font-family:var(--fm);font-size:8px;
+  color:var(--n);letter-spacing:1px;
+  text-transform:uppercase;
+  position:absolute;left:-80px;top:50%;
+  transform:rotate(-90deg) translateX(50%);
+  display:flex;justify-content:space-between;
+  width:200px;gap:8px;
+}
+.matrix-outer{position:relative;padding-left:80px;}
+
+/* Feature badges */
+.badge-table{width:100%;border-collapse:collapse;border:var(--border);}
+.badge-table th{
+  background:var(--n);color:var(--w);
+  font-family:var(--fm);font-size:8px;
+  padding:10px 8px;letter-spacing:0.5px;
+  border:2px solid var(--n);text-transform:uppercase;
+}
+.badge-table td{
+  font-family:var(--fm);font-size:9px;
+  padding:8px;border:2px solid var(--n);
+  text-align:center;
+}
+.badge-table tr:nth-child(even){background:var(--l);}
+.badge-table td:first-child{
+  text-align:left;font-size:8px;letter-spacing:0.3px;
+}
+.has{color:var(--g);font-weight:700;}
+.partial{color:#E8720C;font-weight:700;}
+.none{color:#CC2222;font-weight:700;}
+
+/* ─── SLIDE 4: SWOT ─── */
+#s4{background:var(--l);}
+.swot-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr;
+  gap:0;
+  border:var(--border);
+  margin-bottom:40px;
+}
+.swot-cell{
+  padding:24px;
+  border:var(--border);
+}
+.swot-header{
+  font-family:var(--fp);font-size:9px;
+  padding:8px 12px;
+  display:inline-block;
+  margin-bottom:14px;
+  letter-spacing:0.5px;
+}
+.swot-s .swot-header,.swot-o .swot-header{background:var(--g);color:var(--w);}
+.swot-w .swot-header,.swot-t .swot-header{background:var(--n);color:var(--w);}
+.swot-bullets{list-style:none;}
+.swot-bullets li{
+  font-family:var(--fv);font-size:17px;
+  color:var(--n);padding:3px 0;
+  padding-left:16px;position:relative;
+  line-height:1.3;
+}
+.swot-bullets li::before{content:'→';position:absolute;left:0;color:var(--g);font-size:14px;}
+
+/* Driver cards */
+.driver-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;}
+.driver-card{
+  border:var(--border);
+  box-shadow:var(--shadow);
+  background:var(--w);
+  padding:20px;
+  opacity:0;transform:translateY(24px);
+  transition:opacity 0.4s,transform 0.4s;
+}
+.driver-card.visible{opacity:1;transform:translateY(0);}
+.driver-card:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow-hover);}
+.driver-icon{
+  font-family:var(--fp);font-size:16px;
+  color:var(--g);margin-bottom:12px;
+}
+.driver-title{
+  font-family:var(--fp);font-size:8px;
+  color:var(--n);margin-bottom:10px;
+  line-height:1.7;
+}
+.driver-signal{
+  font-family:var(--fv);font-size:17px;
+  color:var(--n);margin-bottom:6px;line-height:1.3;
+}
+.driver-directive{
+  font-family:var(--fm);font-size:8px;
+  color:var(--g);
+  padding:6px 8px;border:2px solid var(--g);
+  display:inline-block;letter-spacing:0.5px;
+  text-transform:uppercase;margin-top:8px;
+}
+
+/* ─── SLIDE 5: INSIGHT + ZONES ─── */
+#s5{background:var(--w);}
+.insight-box{
+  border:var(--border);
+  box-shadow:var(--shadow);
+  background:var(--w);
+  padding:32px;
+  max-width:800px;
+  margin:0 auto 48px;
+}
+.insight-header{
+  font-family:var(--fp);font-size:9px;
+  color:var(--g);margin-bottom:16px;
+  display:flex;align-items:center;gap:12px;
+}
+.insight-header::after{
+  content:'';flex:1;height:2px;background:var(--g);
+}
+.insight-body{
+  font-family:var(--fv);font-size:22px;
+  color:var(--n);line-height:1.5;
+  margin-bottom:20px;
+}
+.insight-body b{color:var(--g);}
+.levers{display:flex;gap:12px;flex-wrap:wrap;}
+.lever{
+  font-family:var(--fm);font-size:9px;
+  color:var(--g);padding:6px 12px;
+  border:2px solid var(--g);
+  letter-spacing:1px;text-transform:uppercase;
+}
+.lever::after{content:' →';color:var(--n);}
+.lever:last-child::after{content:'';}
+
+.zones-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.zone-card{
+  border:var(--border);
+  box-shadow:5px 5px 0px var(--g);
+  background:var(--w);
+  padding:24px;
+  opacity:0;transform:translateY(24px);
+  transition:opacity 0.4s,transform 0.4s;
+}
+.zone-card.visible{opacity:1;transform:translateY(0);}
+.zone-card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0px var(--g);}
+.zone-badge{
+  font-family:var(--fp);font-size:7px;
+  color:var(--g);
+  border:2px solid var(--g);
+  padding:4px 8px;display:inline-block;
+  margin-bottom:14px;
+}
+.zone-title{
+  font-family:var(--fp);font-size:9px;
+  color:var(--n);margin-bottom:12px;
+  line-height:1.7;
+}
+.zone-area{
+  font-family:var(--fm);font-size:8px;
+  color:var(--n);letter-spacing:0.5px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+  padding-bottom:8px;border-bottom:2px dashed var(--n);
+}
+.zone-question{
+  font-family:var(--fv);font-size:18px;
+  color:var(--n);font-style:italic;
+  margin-bottom:10px;line-height:1.3;
+}
+.zone-metric{
+  font-family:var(--fm);font-size:9px;
+  color:var(--g);font-weight:700;
+  margin-bottom:12px;
+}
+.zone-action{
+  font-family:var(--fp);font-size:7px;
+  color:var(--w);background:var(--n);
+  padding:8px 10px;display:block;
+  line-height:1.7;
+}
+
+/* ─── SLIDE 6: CTA ─── */
+#s6{
+  background:var(--n);
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  text-align:center;
+  min-height:100vh;
+}
+.cta-eyebrow{
+  font-family:var(--fm);font-size:10px;
+  color:var(--g);letter-spacing:3px;
+  margin-bottom:20px;
+  border:2px solid var(--g);padding:6px 14px;
+}
+.cta-h1{
+  font-family:var(--fp);font-size:20px;
+  color:var(--w);line-height:1.7;
+  margin-bottom:20px;max-width:700px;
+}
+.cta-h1 span{color:var(--g);}
+.cta-body{
+  font-family:var(--fv);font-size:22px;
+  color:rgba(255,255,255,0.85);
+  line-height:1.6;max-width:600px;
+  margin:0 auto 40px;
+}
+.contact-card{
+  border:3px solid var(--g);
+  box-shadow:5px 5px 0px var(--g);
+  background:rgba(0,166,81,0.08);
+  padding:32px 48px;
+  margin-bottom:36px;
+  display:inline-block;text-align:left;
+}
+.contact-name{
+  font-family:var(--fp);font-size:14px;
+  color:var(--w);margin-bottom:16px;
+  display:block;
+}
+.contact-line{
+  font-family:var(--fm);font-size:11px;
+  color:var(--g);display:block;
+  margin-bottom:8px;letter-spacing:0.5px;
+}
+.cta-divider{
+  width:100%;height:3px;background:var(--g);
+  margin:12px 0;
+}
+.cta-btns{display:flex;gap:16px;justify-content:center;}
+
+/* ─── ANIMATIONS ─── */
+.reveal{
+  opacity:0;transform:translateY(28px);
+  transition:opacity 0.5s,transform 0.5s;
+}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Stagger delays */
+.d1{transition-delay:0.05s;}
+.d2{transition-delay:0.15s;}
+.d3{transition-delay:0.25s;}
+.d4{transition-delay:0.35s;}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:var(--l);border-left:2px solid var(--n);}
+::-webkit-scrollbar-thumb{background:var(--n);}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  section{padding:80px 24px 48px;}
+  .hero-grid,.charts-grid,.comp-layout,.driver-grid,.zones-grid{grid-template-columns:1fr;}
+  .hero-h1{font-size:14px;}
+  .stamp{display:none;}
+  .matrix-axis-y{display:none;}
+  .matrix-outer{padding-left:0;}
+  .metric-grid{grid-template-columns:1fr 1fr;}
+  .swot-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div id="nav-logo">FLEETEASE.AI</div>
+  <div id="nav-links">
+    <span class="nav-dot active" onclick="goto(0)" title="Hero"></span>
+    <span class="nav-dot" onclick="goto(1)" title="Fleet Ops"></span>
+    <span class="nav-dot" onclick="goto(2)" title="Competitive"></span>
+    <span class="nav-dot" onclick="goto(3)" title="SWOT"></span>
+    <span class="nav-dot" onclick="goto(4)" title="Insight"></span>
+    <span class="nav-dot" onclick="goto(5)" title="CTA"></span>
+  </div>
+</nav>
+<div id="progress-bar"></div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SLIDE 1: HERO -->
+<!-- ═══════════════════════════════════════════ -->
+<section id="s1">
+  <div class="stamp">8 YEARS<br>EV OPS<br>DATA ✓</div>
+
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-eyebrow reveal">STRATEGIC PRODUCT DECK · SUMMER 2026</div>
+      <h1 class="hero-h1 reveal d1">
+        POWER INDIA'S<br>
+        <span>LAST-MILE</span><br>
+        DELIVERY AI
+      </h1>
+      <p class="hero-sub reveal d2">
+        FleetEase.ai manages <b>500,000+ daily deliveries</b> — real-time, AI-powered, automated.<br>
+        <b>30% less downtime.</b> 25% lower costs. Built for India's EV future.
+      </p>
+      <div class="btn-row reveal d3">
+        <a href="#s5" class="btn btn-primary">EXPLORE PRODUCT →</a>
+        <a href="#s6" class="btn btn-secondary">LET'S CONNECT →</a>
+      </div>
+    </div>
+
+    <div class="hero-right reveal d2">
+      <div class="metric-grid">
+        <div class="metric-card">
+          <span class="metric-num">30K+</span>
+          <span class="metric-label">VEHICLES ON PLATFORM</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-num">90%</span>
+          <span class="metric-label">FLEET UPTIME</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-num">₹448CR</span>
+          <span class="metric-label">FY25 REVENUE</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-num">₹149</span>
+          <span class="metric-label">PER VEHICLE/MONTH</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker-inner">
+      <span><b>20,000+</b> EVS MANAGED</span>
+      <span>•</span>
+      <span><b>90%</b> FLEET UPTIME</span>
+      <span>•</span>
+      <span><b>₹448 CR</b> REVENUE FY25</span>
+      <span>•</span>
+      <span><b>500K</b> DAILY DELIVERIES</span>
+      <span>•</span>
+      <span>EBITDA POSITIVE <b>JULY 2025</b></span>
+      <span>•</span>
+      <span>CLIENTS: <b>ZEPTO · BLINKIT · ZOMATO · RAPIDO</b></span>
+      <span>•</span>
+      <span>LAUNCHED: <b>DEC 2025</b></span>
+      <span>•</span>
+      <span>FRANCHISE PROGRAM <b>LIVE</b></span>
+      <span>•</span>
+      <!-- duplicate for seamless loop -->
+      <span><b>20,000+</b> EVS MANAGED</span>
+      <span>•</span>
+      <span><b>90%</b> FLEET UPTIME</span>
+      <span>•</span>
+      <span><b>₹448 CR</b> REVENUE FY25</span>
+      <span>•</span>
+      <span><b>500K</b> DAILY DELIVERIES</span>
+      <span>•</span>
+      <span>EBITDA POSITIVE <b>JULY 2025</b></span>
+      <span>•</span>
+      <span>CLIENTS: <b>ZEPTO · BLINKIT · ZOMATO · RAPIDO</b></span>
+      <span>•</span>
+      <span>LAUNCHED: <b>DEC 2025</b></span>
+      <span>•</span>
+      <span>FRANCHISE PROGRAM <b>LIVE</b></span>
+      <span>•</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SLIDE 2: FLEET OPS DATA WALL -->
+<!-- ═══════════════════════════════════════════ -->
+<section id="s2">
+  <div class="section-label reveal">PHASE 02 — FLEET OPERATIONS ANALYSIS</div>
+  <h2 class="section-title reveal d1">FLEET GROWTH: THE DATA WALL</h2>
+
+  <div class="charts-grid">
+    <!-- Chart 1: Funnel -->
+    <div class="chart-card reveal">
+      <div class="chart-title">FLEET ONBOARDING FUNNEL</div>
+      <div class="funnel-chart" id="funnel">
+        <div class="funnel-bar-wrap">
+          <div class="funnel-bar" data-h="100"><span>100%</span></div>
+          <div class="funnel-label">SIGN-UP</div>
+        </div>
+        <div class="funnel-bar-wrap">
+          <div class="funnel-bar" data-h="72"><span>72%</span></div>
+          <div class="funnel-label">API SETUP</div>
+        </div>
+        <div class="funnel-bar-wrap">
+          <div class="funnel-bar dim" data-h="58"><span>58%</span></div>
+          <div class="funnel-label">DASHBOARD<br>ACTIVE</div>
+        </div>
+        <div class="funnel-bar-wrap">
+          <div class="funnel-bar dim" data-h="45"><span>45%</span></div>
+          <div class="funnel-label">MONTH 1<br>ACTIVE</div>
+        </div>
+        <div class="funnel-bar-wrap">
+          <div class="funnel-bar dim" data-h="31"><span>31%</span></div>
+          <div class="funnel-label">MONTH 3<br>RETAINED</div>
+        </div>
+      </div>
+      <p style="font-family:var(--fv);font-size:15px;color:var(--g);margin-top:14px;border-top:2px solid var(--n);padding-top:10px;">
+        → API drop-off at 72% → simplify SDK + sandbox docs.
+      </p>
+    </div>
+
+    <!-- Chart 2: Horizontal bars -->
+    <div class="chart-card reveal d1">
+      <div class="chart-title">WHAT DRIVES FLEET SIGN-UP</div>
+      <div class="hbar-chart" id="hbars">
+        <div class="hbar-row">
+          <div class="hbar-label">ROI CALCULATOR</div>
+          <div class="hbar-track"><div class="hbar-fill" data-w="92"></div></div>
+          <div class="hbar-val">92</div>
+        </div>
+        <div class="hbar-row">
+          <div class="hbar-label">LIVE TRACKING DEMO</div>
+          <div class="hbar-track"><div class="hbar-fill" data-w="78"></div></div>
+          <div class="hbar-val">78</div>
+        </div>
+        <div class="hbar-row">
+          <div class="hbar-label">EV TRANSITION SUPPORT</div>
+          <div class="hbar-track"><div class="hbar-fill" data-w="71"></div></div>
+          <div class="hbar-val">71</div>
+        </div>
+        <div class="hbar-row">
+          <div class="hbar-label">PEER REFERRAL</div>
+          <div class="hbar-track"><div class="hbar-fill" data-w="65"></div></div>
+          <div class="hbar-val">65</div>
+        </div>
+        <div class="hbar-row">
+          <div class="hbar-label">FREE TRIAL ACCESS</div>
+          <div class="hbar-track"><div class="hbar-fill" data-w="60"></div></div>
+          <div class="hbar-val">60</div>
+        </div>
+      </div>
+      <p style="font-family:var(--fv);font-size:15px;color:var(--g);margin-top:14px;border-top:2px solid var(--n);padding-top:10px;">
+        → ROI calculator top trigger → build fleet savings estimator.
+      </p>
+    </div>
+  </div>
+
+  <!-- Segment cards -->
+  <div style="font-family:var(--fm);font-size:10px;color:var(--g);letter-spacing:3px;margin-bottom:14px;" class="reveal">FLEET SEGMENTS: OPPORTUNITY MAP</div>
+  <div class="segment-grid reveal d1">
+    <div class="seg-card">
+      <div class="seg-title">E-COMMERCE FLEET</div>
+      <div class="seg-profile">High volume, speed-obsessed, automation-hungry.</div>
+      <span class="seg-play">AUTO-DISPATCH + ROUTE AI → CUT TIME 20%</span>
+    </div>
+    <div class="seg-card">
+      <div class="seg-title">EV TRANSITION FLEET</div>
+      <div class="seg-profile">Switching to electric, needs charging guidance now.</div>
+      <span class="seg-play">CHARGING FINDER + BATTERY AI → EASE EV SHIFT</span>
+    </div>
+    <div class="seg-card">
+      <div class="seg-title">COST-OPTIMIZER FLEET</div>
+      <div class="seg-profile">Margin-focused, tracks every rupee, ROI-driven.</div>
+      <span class="seg-play">FUEL ANALYTICS + DASHBOARD → PROVE ROI WEEKLY</span>
+    </div>
+    <div class="seg-card">
+      <div class="seg-title">ENTERPRISE FLEET</div>
+      <div class="seg-profile">Large-scale, compliance-driven, SLA-critical.</div>
+      <span class="seg-play">ENTERPRISE API + SUPPORT → MULTI-YEAR CONTRACT</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SLIDE 3: COMPETITIVE LANDSCAPE -->
+<!-- ═══════════════════════════════════════════ -->
+<section id="s3">
+  <div class="section-label reveal">PHASE 03 — COMPETITIVE INTELLIGENCE</div>
+  <h2 class="section-title reveal d1">WHO FLEETEASE COMPETES WITH</h2>
+
+  <div class="comp-layout">
+    <!-- Matrix plot -->
+    <div class="reveal">
+      <div class="matrix-wrap">
+        <div class="matrix-title">COMPETITIVE POSITIONING MAP</div>
+        <div class="matrix-outer">
+          <div class="matrix-axis-y">
+            <span>BASIC TRACKING</span>
+            <span>AI OPTIMIZATION</span>
+          </div>
+          <div class="matrix-plot">
+            <div class="matrix-inner" id="matrix">
+              <!-- dots placed by JS -->
+            </div>
+          </div>
+          <div class="matrix-axis-x">
+            <span>SMB FLEETS</span>
+            <span>ENTERPRISE FLEETS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legend -->
+      <div style="display:flex;gap:12px;margin-top:14px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:6px;font-family:var(--fm);font-size:8px;">
+          <div style="width:14px;height:14px;background:var(--g);border:2px solid var(--n);"></div>
+          FLEETEASE.AI
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;font-family:var(--fm);font-size:8px;">
+          <div style="width:12px;height:12px;background:var(--n);border:2px solid var(--n);"></div>
+          LOCUS.SH
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;font-family:var(--fm);font-size:8px;">
+          <div style="width:12px;height:12px;background:#666;border:2px solid #666;"></div>
+          FAREYE / OTHERS
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature badge table -->
+    <div class="reveal d1">
+      <table class="badge-table">
+        <thead>
+          <tr>
+            <th style="text-align:left;">FEATURE</th>
+            <th>FLEETEASE</th>
+            <th>LOCUS</th>
+            <th>FAREYE</th>
+            <th>BLACKBUCK</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ROUTE AI</td>
+            <td class="has">✅</td>
+            <td class="has">✅</td>
+            <td class="partial">⚠</td>
+            <td class="none">✗</td>
+          </tr>
+          <tr>
+            <td>EV BATTERY AI</td>
+            <td class="has">✅ NATIVE</td>
+            <td class="none">✗</td>
+            <td class="partial">⚠</td>
+            <td class="none">✗</td>
+          </tr>
+          <tr>
+            <td>LIVE TRACKING</td>
+            <td class="has">✅</td>
+            <td class="has">✅</td>
+            <td class="has">✅</td>
+            <td class="partial">⚠</td>
+          </tr>
+          <tr>
+            <td>AUTO-DISPATCH</td>
+            <td class="has">✅</td>
+            <td class="has">✅</td>
+            <td class="partial">⚠</td>
+            <td class="none">✗</td>
+          </tr>
+          <tr>
+            <td>SMB PRICING ₹149</td>
+            <td class="has">✅</td>
+            <td class="none">✗</td>
+            <td class="none">✗</td>
+            <td class="none">✗</td>
+          </tr>
+          <tr>
+            <td>PREDICTIVE MAINT.</td>
+            <td class="has">✅</td>
+            <td class="partial">⚠</td>
+            <td class="partial">⚠</td>
+            <td class="none">✗</td>
+          </tr>
+          <tr>
+            <td>FRANCHISE PROGRAM</td>
+            <td class="has">✅</td>
+            <td class="none">✗</td>
+            <td class="none">✗</td>
+            <td class="none">✗</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:16px;border:var(--border);box-shadow:var(--shadow-green);padding:14px 18px;background:var(--w);">
+        <div style="font-family:var(--fp);font-size:7px;color:var(--g);margin-bottom:8px;">ONLY FLEETEASE.AI COMBINES:</div>
+        <div style="font-family:var(--fv);font-size:18px;color:var(--n);">EV Battery AI + SMB Pricing + Franchise Program</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SLIDE 4: SWOT + DRIVERS -->
+<!-- ═══════════════════════════════════════════ -->
+<section id="s4">
+  <div class="section-label reveal">PHASE 04 — STRATEGIC SYNTHESIS</div>
+  <h2 class="section-title reveal d1">SWOT: WHERE TO MOVE NEXT</h2>
+
+  <div class="swot-grid reveal d1">
+    <div class="swot-cell swot-s">
+      <span class="swot-header">STRENGTHS</span>
+      <ul class="swot-bullets">
+        <li>8-yr EV ops data → unmatched battery AI.</li>
+        <li>90% fleet uptime → proven PMF signal.</li>
+        <li>₹149/vehicle → SMB-accessible vs competitors.</li>
+        <li>2W, 3W, 4W, EV + ICE → universal platform.</li>
+        <li>Franchise Program → bundled hardware + SIM.</li>
+      </ul>
+    </div>
+    <div class="swot-cell swot-w">
+      <span class="swot-header">WEAKNESSES</span>
+      <ul class="swot-bullets">
+        <li>SaaS revenue ₹60L FY26 → needs 10x scale.</li>
+        <li>API setup 72% completion → SDK too complex.</li>
+        <li>5 cities today → enterprise sales limited.</li>
+        <li>Brand awareness low vs Locus/FarEye.</li>
+        <li>Enterprise ERP integrations thin.</li>
+      </ul>
+    </div>
+    <div class="swot-cell swot-o">
+      <span class="swot-header">OPPORTUNITIES</span>
+      <ul class="swot-bullets">
+        <li>India EV fleet: 13.92% CAGR → scale 2W analytics.</li>
+        <li>Analytics fastest-growing segment (14.12% CAGR).</li>
+        <li>Large enterprise fleets growing → build API now.</li>
+        <li>Tier-II city expansion → first-mover advantage.</li>
+        <li>Battery swap ecosystem → partner charging data.</li>
+      </ul>
+    </div>
+    <div class="swot-cell swot-t">
+      <span class="swot-header">THREATS</span>
+      <ul class="swot-bullets">
+        <li>Locus acquired by IKEA Oct 2025 → AI scale-up.</li>
+        <li>FarEye adding EV routing → encroaching territory.</li>
+        <li>250+ Indian fleet startups → commoditization risk.</li>
+        <li>Enterprise RFP cycles favor Locus/FarEye brand.</li>
+        <li>Driver app churn if AI value unclear to operators.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Driver cards -->
+  <div style="font-family:var(--fm);font-size:10px;color:var(--g);letter-spacing:3px;margin-bottom:16px;">ADJACENT GROWTH DRIVERS — NOT YET BUILT</div>
+  <div class="driver-grid">
+    <div class="driver-card">
+      <div class="driver-icon">📡</div>
+      <div class="driver-title">FLEET MEDIA → NEW REVENUE</div>
+      <div class="driver-signal">Zypp runs internal helmet/vehicle ads already.</div>
+      <div class="driver-signal" style="color:#555;">External FleetEase operators can't access this. An "AdSense for fleet surfaces" module creates a new revenue layer for every customer on the platform.</div>
+      <span class="driver-directive">EXTEND ADS MODULE TO ALL OPERATORS</span>
+    </div>
+    <div class="driver-card">
+      <div class="driver-icon">🌱</div>
+      <div class="driver-title">CARBON CREDIT ENGINE</div>
+      <div class="driver-signal">India's Carbon Credit Trading Scheme is live.</div>
+      <div class="driver-signal" style="color:#555;">FleetEase tracks EV km better than anyone. Auto-calculate, certify, and trade credits directly in the dashboard. No fleet SaaS in India does this.</div>
+      <span class="driver-directive">BUILD CREDIT CALC + TRADING LAYER</span>
+    </div>
+    <div class="driver-card">
+      <div class="driver-icon">💰</div>
+      <div class="driver-title">DRIVER FINANCIAL OS</div>
+      <div class="driver-signal">500K+ daily deliveries flow through driver app.</div>
+      <div class="driver-signal" style="color:#555;">Locus/FarEye are operator-facing only. Embed micro-insurance, income advances, and salary analytics — lock in the driver layer that competitors ignore.</div>
+      <span class="driver-directive">PILOT FINTECH LAYER IN DRIVER APP</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SLIDE 5: INSIGHT + OPPORTUNITY ZONES -->
+<!-- ═══════════════════════════════════════════ -->
+<section id="s5">
+  <div class="section-label reveal">PHASE 05 — STRATEGIC NARRATIVE</div>
+  <h2 class="section-title reveal d1">THE UNLOCK: 3 ZONES TO WIN</h2>
+
+  <div class="insight-box reveal d2">
+    <div class="insight-header">THE CORE INSIGHT</div>
+    <div class="insight-body">
+      FleetEase has built <b>a strong fleet OS</b> — but its core features are now table stakes.<br>
+      The unlock: use Zypp's <b>unique data, driver network, and media assets</b> to build three adjacent revenue layers no competitor can replicate from scratch.
+    </div>
+    <div class="levers">
+      <span class="lever">FLEET MEDIA</span>
+      <span class="lever">CARBON CREDITS</span>
+      <span class="lever">DRIVER FINTECH</span>
+    </div>
+  </div>
+
+  <div class="zones-grid">
+    <div class="zone-card">
+      <div class="zone-badge">📍 ZONE 1</div>
+      <div class="zone-title">FLEET MEDIA LAYER</div>
+      <div class="zone-area">VEHICLE AD INVENTORY · OPEN TO ALL OPERATORS</div>
+      <div class="zone-question">"Can every FleetEase customer monetize their own fleet surfaces?"</div>
+      <div class="zone-metric">SIGNAL: ZYPP ADS EARNED ₹50L INTERNALLY IN 4 MONTHS</div>
+      <span class="zone-action">EXTEND AD MODULE → EXTERNAL OPERATORS NOW →</span>
+    </div>
+    <div class="zone-card">
+      <div class="zone-badge">📍 ZONE 2</div>
+      <div class="zone-title">CARBON CREDIT ENGINE</div>
+      <div class="zone-area">EV KM TRACKING · AUTO CERTIFICATION · CREDIT TRADING</div>
+      <div class="zone-question">"Can FleetEase be India's first fleet-native carbon credit platform?"</div>
+      <div class="zone-metric">SIGNAL: INDIA CARBON CREDIT SCHEME LIVE · NO FLEET SaaS PLAYS HERE</div>
+      <span class="zone-action">BUILD CREDIT CALCULATOR + TRADING DASHBOARD →</span>
+    </div>
+    <div class="zone-card">
+      <div class="zone-badge">📍 ZONE 3</div>
+      <div class="zone-title">DRIVER FINANCIAL OS</div>
+      <div class="zone-area">MICRO-INSURANCE · INCOME ADVANCES · SALARY ANALYTICS</div>
+      <div class="zone-question">"Can owning the driver layer create lock-in competitors can't touch?"</div>
+      <div class="zone-metric">SIGNAL: 500K DAILY DELIVERIES · LOCUS/FAREYE ARE OPERATOR-ONLY</div>
+      <span class="zone-action">PILOT EMBEDDED FINTECH IN DRIVER APP →</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- SLIDE 6: CTA -->
+<!-- ═══════════════════════════════════════════ -->
+<section id="s6">
+  <div class="cta-eyebrow reveal">PRODUCT INTERNSHIP APPLICATION · SUMMER 2026</div>
+  <h1 class="cta-h1 reveal d1">LET'S BUILD <span>THIS</span><br>TOGETHER</h1>
+  <p class="cta-body reveal d2">
+    I'm actively seeking a Product Internship and have applied to your open role.
+    If this strategic deck resonates with your product team's priorities,
+    I'd be grateful to contribute fleet ops analysis and product thinking to Zypp.
+  </p>
+
+  <div class="contact-card reveal d3">
+    <span class="contact-name">KUNJ HARJAI</span>
+    <div class="cta-divider"></div>
+    <span class="contact-line">✉  kunj.24141@sscbs.du.ac.in</span>
+    <span class="contact-line">🔗  linkedin.com/in/kunjharjai</span>
+  </div>
+
+  <div class="cta-btns reveal d4">
+    <a href="mailto:kunj.24141@sscbs.du.ac.in" class="btn btn-primary">SEND MESSAGE →</a>
+    <a href="https://linkedin.com/in/kunjharjai" class="btn" style="background:transparent;color:var(--w);border-color:var(--w);box-shadow:5px 5px 0px var(--g);">VIEW LINKEDIN →</a>
+  </div>
+
+  <!-- Green ticker at bottom -->
+  <div class="ticker-wrap ticker-green" style="position:absolute;bottom:0;left:0;right:0;">
+    <div class="ticker-inner" style="animation-duration:20s;">
+      <span>FLEET OPS ANALYSIS</span><span>•</span>
+      <span>PRODUCT STRATEGY</span><span>•</span>
+      <span>LOGISTICS RESEARCH</span><span>•</span>
+      <span>READY TO SHIP</span><span>•</span>
+      <span>SSCBS · DELHI UNIVERSITY</span><span>•</span>
+      <span>FLEET OPS ANALYSIS</span><span>•</span>
+      <span>PRODUCT STRATEGY</span><span>•</span>
+      <span>LOGISTICS RESEARCH</span><span>•</span>
+      <span>READY TO SHIP</span><span>•</span>
+      <span>SSCBS · DELHI UNIVERSITY</span><span>•</span>
+    </div>
+  </div>
+</section>
+
+<script>
+/* ─── SECTIONS ARRAY ─── */
+const sections = document.querySelectorAll('section');
+const navDots = document.querySelectorAll('.nav-dot');
+const progressBar = document.getElementById('progress-bar');
+
+/* ─── NAV / PROGRESS ─── */
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docH = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.width = (scrollTop / docH * 100) + '%';
+
+  let current = 0;
+  sections.forEach((s, i) => {
+    if (scrollTop >= s.offsetTop - 80) current = i;
+  });
+  navDots.forEach((d, i) => d.classList.toggle('active', i === current));
+});
+
+function goto(i) {
+  sections[i].scrollIntoView({ behavior: 'smooth' });
+}
+
+/* ─── INTERSECTION OBSERVER (reveal + chart triggers) ─── */
+const observed = new Set();
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !observed.has(entry.target)) {
+      observed.add(entry.target);
+      entry.target.classList.add('visible');
+
+      /* Funnel chart */
+      if (entry.target.id === 'funnel') animateFunnel();
+      /* Horizontal bars */
+      if (entry.target.id === 'hbars') animateHBars();
+      /* Matrix */
+      if (entry.target.id === 'matrix') animateMatrix();
+    }
+  });
+}, { threshold: 0.2 });
+
+/* Observe all reveal elements */
+document.querySelectorAll('.reveal, .driver-card, .zone-card').forEach(el => {
+  observer.observe(el);
+});
+
+/* Also observe chart containers specifically */
+['funnel','hbars','matrix'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) observer.observe(el);
+});
+
+/* ─── FUNNEL ANIMATION ─── */
+function animateFunnel() {
+  document.querySelectorAll('.funnel-bar').forEach((bar, i) => {
+    const h = parseInt(bar.dataset.h);
+    setTimeout(() => {
+      bar.style.height = h + '%';
+    }, i * 120);
+  });
+}
+
+/* ─── HBAR ANIMATION ─── */
+function animateHBars() {
+  document.querySelectorAll('.hbar-fill').forEach((fill, i) => {
+    const w = parseInt(fill.dataset.w);
+    setTimeout(() => {
+      fill.style.width = w + '%';
+    }, i * 100);
+  });
+}
+
+/* ─── COMPETITOR MATRIX ─── */
+const competitors = [
+  { name: 'FLEETEASE.AI', x: 44, y: 15, cls: 'fleetease' },
+  { name: 'LOCUS.SH', x: 82, y: 20, cls: 'other' },
+  { name: 'FAREYE', x: 74, y: 30, cls: 'dim' },
+  { name: 'DELHIVERY', x: 78, y: 52, cls: 'dim' },
+  { name: 'BLACKBUCK', x: 28, y: 60, cls: 'dim' },
+];
+
+function buildMatrix() {
+  const container = document.getElementById('matrix');
+  competitors.forEach(c => {
+    const dot = document.createElement('div');
+    dot.className = `matrix-dot ${c.cls}`;
+    dot.style.left = c.x + '%';
+    dot.style.top = c.y + '%';
+
+    const label = document.createElement('div');
+    label.className = 'dot-label';
+    label.textContent = c.name;
+
+    dot.appendChild(label);
+    container.appendChild(dot);
+  });
+}
+buildMatrix();
+
+function animateMatrix() {
+  document.querySelectorAll('.matrix-dot').forEach((dot, i) => {
+    setTimeout(() => {
+      dot.style.transform = 'translate(-50%, -50%) scale(1)';
+    }, i * 150);
+  });
+}
+
+/* ─── DRIVER + ZONE CARDS (stagger) ─── */
+const cardObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const cards = entry.target.querySelectorAll
+        ? entry.target.querySelectorAll('.driver-card, .zone-card')
+        : [];
+      cards.forEach((card, i) => {
+        setTimeout(() => card.classList.add('visible'), i * 150);
+      });
+      cardObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('#s4, #s5').forEach(s => cardObserver.observe(s));
+
+/* ─── INIT: trigger hero reveals immediately ─── */
+setTimeout(() => {
+  document.querySelectorAll('#s1 .reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), i * 100);
+  });
+}, 100);
+</script>
+</body>
+</html>
